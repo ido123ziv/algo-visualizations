@@ -7,6 +7,8 @@ This project is made in order to see the algorithms in real life and learn how t
 
 All algorithms will be written in Python, all code is written and tested with Python3.
 
+Highly recommended to checkout this repository: [AllAlgorithms](https://github.com/TheAlgorithms/Python)
+
 ## Curriculum
 
 * Graph Theory
