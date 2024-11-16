@@ -1,0 +1,7 @@
+[
+  { "start": 1, "end": 2, "weight" : 1},
+  { "start": 2, "end": 3, "weight" : 2},
+  { "start": 1, "end": 3, "weight" : 4},
+  { "start": 2, "end": 4, "weight" : 3},
+  { "start": 4, "end": 1, "weight" : 5}
+]
