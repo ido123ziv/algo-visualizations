@@ -2,6 +2,7 @@ import pytest  # noqa: F401
 import networkx as nx
 from algorithms.dfs.dfs import run_algorithm as dfs
 
+
 def test_dfs_full_pipeline():
     graph = nx.DiGraph()
     graph.add_edges_from([
@@ -18,4 +19,4 @@ def test_dfs_full_pipeline():
     assert distances == {1: 0, 2: 1, 3: 1, 4: 2, 5: 2}
 
     # Validate path (DFS tree structure)
-    assert path ==  {2: 1, 3: 1, 4: 2, 5: 3}
+    assert path == {2: 1, 3: 1, 4: 2, 5: 3}
