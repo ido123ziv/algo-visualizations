@@ -119,4 +119,6 @@ def visualize_algorithm_progress(graph, pos, steps,
     # Save the animation
     anim.save(output_file, writer='pillow')
     patch_file_permissions(output_file)
-    plt.show()
+    # Only show the plot if not running in CI
+    if not os.getenv("CI_RUN"):
+        plt.show()
