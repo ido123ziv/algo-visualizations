@@ -17,22 +17,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: get code
-      - name: Flake8
-        uses: microsoft/action-python@0.7.3
+      - name: Set up Python environment
+        uses: actions/setup-python@v5
         with:
-          flake8: true
-          python_version: ${{ matrix.python_version }}
-          workdir: '.'
+          python-version: ${{ matrix.python_version }}
+      - name: install dependencies
+        run: pip install -r requirements.txt
+      - name: flake8 Lint
+        uses: reviewdog/action-flake8@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_error: true
 
   testing:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python_version: [3.8,3.9,3.10,3.11]
     steps:
       - uses: actions/checkout@v4
         name: get code
-      - name: Pytest
-        uses: microsoft/action-python@0.7.3
+      - name: Set up Python environment
+        uses: actions/setup-python@v5
         with:
-          pytest: true
-          workdir: '.'
-          fail_on_error: true
+          python-version: ${{ matrix.python_version }}
+      - name: install dependencies
+        run: pip install -r requirements.txt
+      - name: test using pytest
+        run: |
+          pytest tests/
+      - name: coverage report
+        run: |
+          pytest --cov=.
