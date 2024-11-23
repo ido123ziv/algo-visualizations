@@ -2,7 +2,7 @@ import os
 import argparse
 import importlib
 from common.data_loader import load_graph_from_csv
-from common.visualizer import visualize_algorithm_progress, visualize_graph
+from common.visualizer import visualize_algorithm_progress
 import networkx as nx
 
 
@@ -35,12 +35,10 @@ def main(args_stack):
         with open(f"algorithms/{algo}/README.md", 'r') as readme:
             content = readme.read()
     else:
-        content = f"""# {algo.capitalize()} 
+        content = f"""# {algo.capitalize()}
         This is a new algorithm here!
-        
         """
     content += f""" ## Results
-    
 ![](./{algo}_progress.gif)
 
     """

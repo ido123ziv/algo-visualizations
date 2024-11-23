@@ -1,6 +1,15 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+import os
+import stat
+
+
+def patch_file_permissions(file_path):
+    os.chmod(file_path,
+             stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH |
+             stat.S_IXUSR | stat.S_IRUSR | stat.S_IWUSR |
+             stat.S_IWGRP | stat.S_IXGRP)
 
 
 def visualize_graph(graph, pos, title="Graph Visualization"):
@@ -109,4 +118,5 @@ def visualize_algorithm_progress(graph, pos, steps,
 
     # Save the animation
     anim.save(output_file, writer='pillow')
+    patch_file_permissions(output_file)
     plt.show()

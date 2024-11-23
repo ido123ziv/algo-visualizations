@@ -1,35 +1,29 @@
 import pytest
 import networkx as nx
-from algorithms.dijkstra.dijkstra import dijkstra
+from common.data_loader import load_graph_from_csv
+from algorithms.dijkstra.dijkstra import run_algorithm as dijkstra
 
 
-# Test 1: Basic Graph
-def test_basic_graph():
-    graph = nx.DiGraph()
-    graph.add_weighted_edges_from([
-        (1, 2, 1),
-        (2, 3, 2),
-        (1, 3, 4)
-    ])
+def test_dijkstra_full_pipeline():
+    graph = load_graph_from_csv('data/basic_directed_graph.csv')
     start_node = 1
-
     distances, path, steps = dijkstra(graph, start_node)
 
-    assert distances == {1: 0, 2: 1, 3: 3}
-    assert path == {2: 1, 3: 2}
-    assert len(steps) > 0  # Ensure steps are recorded
+    # Validate distances
+    assert distances[3] == 3  # Example expected distance
+    assert distances[4] == 4  # Example expected distance
+    # Validate path
+    assert path[4] == 2
+    assert path[3] == 2
 
 
 # Test 2: Empty Graph
 def test_empty_graph():
     graph = nx.DiGraph()
-    start_node = 1
+    # start_node = 1
 
-    distances, path, steps = dijkstra(graph, start_node)
-
-    assert distances == {}
-    assert path == {}
-    assert steps == []
+    with pytest.raises(ValueError, match="Graph has no nodes."):
+        dijkstra(graph, start_node=1)
 
 
 # Test 3: Graph with Disconnected Nodes
