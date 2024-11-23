@@ -28,8 +28,11 @@ def run(graph, algorithm_name, algorithm_func, graph_name):
     pos = nx.spring_layout(graph)
     visualize_graph(graph, pos, title=f"{algorithm_name.capitalize()} Algorithm Visualization")
 
-    # Run the algorithm and get steps
     distances, path, steps = algorithm_func(graph, start_node)
+    # this is used for creating a folder if doesn't exist
+    if not os.path.exists("animations"):
+        os.mkdir("animations")
+    # Run the algorithm and get steps
     gif_name = f"animations/{algorithm_name}_on_{graph_name}.gif"
 
     # Visualize the progress generically
