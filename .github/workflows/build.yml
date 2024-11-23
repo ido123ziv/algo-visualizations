@@ -1,5 +1,5 @@
-name: Python Lint and Test
-run-name: lint and test on ${{ github.ref_name }}
+name: Build Animations
+run-name: Build Animations for ${{ github.ref_name }}
 
 on:
   pull_request:
