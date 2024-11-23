@@ -1,9 +1,40 @@
 import heapq
 
 
-def dijkstra(graph, start_node):
-    """Implement Dijkstra's algorithm with progress logging."""
+def run_algorithm(graph, start_node):
+    """
+     Run Dijkstra's algorithm on the given graph with negative weight detection.
+
+     Args:
+         graph (networkx.Graph): The input graph.
+         start_node: The starting node for Dijkstra's algorithm.
+
+     Returns:
+         tuple: (distances, path, steps)
+             - distances: A dictionary of the shortest distances from start_node.
+             - path: A dictionary of the shortest path tree.
+             - steps: A list of steps for visualization.
+
+     Raises:
+         ValueError: If the graph contains negative edge weights.
+         ValueError: If the start node is not in graph.
+         ValueError: If the has no nodes.
+     """
     distances = {node: float('inf') for node in graph.nodes}
+
+    # validate empty graph
+    if graph.nodes is None or len(graph.nodes) == 0:
+        raise ValueError("Graph has no nodes.")
+
+    # validation if start node in graph
+    if start_node not in graph.nodes:
+        raise ValueError("Start node not found in the graph")
+
+    # validation for edges weight
+    for u, v, data in graph.edges(data=True):
+        if data.get('weight', 0) < 0:
+            raise ValueError(f"Graph contains negative weight edges. Found on edge ({u}, {v}) with weight {data['weight']}.")
+
     distances[start_node] = 0
     visited = set()
     path = {}

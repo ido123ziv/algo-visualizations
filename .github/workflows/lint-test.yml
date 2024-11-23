@@ -1,0 +1,54 @@
+name: Python Lint and Test
+run-name: lint and test on ${{ github.ref_name }}
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8"]
+    steps:
+      - uses: actions/checkout@v4
+        name: get code
+      - name: Set up Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: install dependencies
+        run: pip install -r requirements.txt
+      - name: flake8 Lint
+        uses: reviewdog/action-flake8@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+  testing:
+    runs-on: ubuntu-latest
+    env:
+      CI_RUN: true
+    strategy:
+      matrix:
+        python-version: ["3.8"]
+    steps:
+      - uses: actions/checkout@v4
+        name: get code
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: install dependencies
+        run: pip install -r requirements.txt
+      - name: test using pytest
+        id: test
+        run: |
+          pytest tests/
+      - name: coverage report
+        if: always()
+        run: |
+          pytest --cov=.

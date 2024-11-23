@@ -16,7 +16,7 @@ def load_graph_from_csv(file_path) -> nx.DiGraph:
 def load_graph_from_json(file_path) -> nx.DiGraph:
     if not os.path.isfile(file_path):
         raise ValueError("File Doesn't Exists")
-    with open('graph.json', 'r') as graph_file:
+    with open(file_path, 'r') as graph_file:
         graph_data = json.load(graph_file)
 
     graph_edges = [tuple(x.values()) for x in graph_data]

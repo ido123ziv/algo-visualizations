@@ -1,7 +1,8 @@
-# Dijkstra's Algorithm
+# BFS Algorithm
 
 ## Overview
-Dijkstra's algorithm finds the shortest path from a start node to all other nodes in a graph.
+BFS algorithm traverses a given graph and finds if a certain feature exists,
+It searches the nodes from the next level before going into deeper levels.
 
 ## Graph Data Format
 The graph data is stored in `example_graph.csv` with the following columns:
@@ -13,10 +14,11 @@ The graph data is stored in `example_graph.csv` with the following columns:
 1. Ensure you have the required dependencies: `pip install -r requirements.txt`.
 2. Run the algorithm using `main.py` or directly from root repository folder:
    ```bash
-   python ../../main.py
+   python main.py
    ```
 
-## Results
-The algorithm traverses the graph in a certain order:
+     ## Results
+    
+![](./bfs_progress.gif)
 
-![Graph](./dijkstra_progress.gif)
+    
