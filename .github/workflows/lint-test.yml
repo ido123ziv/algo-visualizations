@@ -44,8 +44,10 @@ jobs:
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: test using pytest
+        id: test
         run: |
           pytest tests/
       - name: coverage report
+        if: always()
         run: |
           pytest --cov=.
