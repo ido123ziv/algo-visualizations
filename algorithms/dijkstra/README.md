@@ -16,7 +16,7 @@ The graph data is stored in `graph.csv` with the following columns:
    python ../../main.py
    ```
 
-## results
+## Results
 The algorithm traverses the graph in a certain order:
 
 ![Graph](./dijkstra_progress.gif)

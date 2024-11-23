@@ -1,8 +1,10 @@
 import heapq
 
 
-def dijkstra(graph, start_node):
-    """Implement Dijkstra's algorithm with progress logging."""
+def run_algorithm(graph, start_node):
+    """
+    Run Dijkstra's algorithm on the graph.
+    """
     distances = {node: float('inf') for node in graph.nodes}
     distances[start_node] = 0
     visited = set()
