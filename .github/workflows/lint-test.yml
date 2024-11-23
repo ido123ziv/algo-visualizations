@@ -16,6 +16,7 @@ jobs:
         uses: microsoft/action-python@0.7.0
         with:
           flake8: true
+          workdir: '.'
 
   testing:
     runs-on: ubuntu-latest
