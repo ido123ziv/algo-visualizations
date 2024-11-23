@@ -7,7 +7,7 @@ This project is made in order to see the algorithms in real life and learn how t
 
 All algorithms will be written in Python, all code is written and tested with Python3.
 
-Highly recommended to checkout this repository: [AllAlgorithms](https://github.com/TheAlgorithms/Python)
+Highly recommended to check out this repository: [AllAlgorithms](https://github.com/TheAlgorithms/Python)
 
 ## Curriculum
 
@@ -18,8 +18,8 @@ Highly recommended to checkout this repository: [AllAlgorithms](https://github.c
 
 ## Algorithms Covered in this projects
 
-* Dijkstra [see](./dijksra) -> an algorithm made to find the shortest path between nodes in a weighted graph 
-
+* Dijkstra [see](algorithms/dijkstra) -> an algorithm made to find the shortest path between nodes in a weighted graph 
+* BFS [see](algorithms/bfs) -> a searching algorithm on a graph
 
 ## Bootstrap
 
@@ -45,3 +45,10 @@ source ./bin/activate
 pip install -r 'requirements.txt'
 ```
 
+## How Do I onboard an algorithm?
+
+1. Create a python package under `algorithms` package
+2. Add the algorithm implementation in python, make sure to add a `run_algorithm` function and import it in `__init__.py` 
+3. Create a basic `README.md` file
+4. Follow [guide](utils/README.md) for adding a diagram
+5. run `main.py` of project to add to animations path

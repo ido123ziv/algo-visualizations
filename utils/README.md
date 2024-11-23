@@ -33,8 +33,8 @@ set PYTHONPATH=.
 Then run **from repo root**
 ```shell
 # -a or --algorithm is the name of algorithm
-# -d or --directed is whether to use a directed graph
-# -u or --undirected is whether to use a undirected graph
-python utils/enrich_example.py -a bfs -d
+# --directed is whether to use a directed graph
+# --undirected is whether to use a undirected graph
+python utils/enrich_example.py --algorithm bfs --directed
 ```
 
