@@ -18,4 +18,5 @@ The graph data is stored in `graph.csv` with the following columns:
 
 ## results
 The algorithm traverses the graph in a certain order:
+
 ![Graph](./dijkstra_progress.gif)
