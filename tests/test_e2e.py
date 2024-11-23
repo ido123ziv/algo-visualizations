@@ -15,6 +15,7 @@ def test_e2e():
     print(os.listdir())
     # Run the main pipeline
     main()
+    print("post main")
     print(os.listdir())
     # Check that animations are created for each graph and algorithm
     assert os.path.exists('animations/dijkstra_on_basic_directed_graph.gif')
