@@ -20,6 +20,7 @@ Highly recommended to check out this repository: [AllAlgorithms](https://github.
 
 * Dijkstra [see](algorithms/dijkstra) -> an algorithm made to find the shortest path between nodes in a weighted graph 
 * BFS [see](algorithms/bfs) -> a searching algorithm on a graph
+* DFS [see](algorithms/dfs) -> a searching algorithm on a graph
 
 ## Bootstrap
 
@@ -52,3 +53,4 @@ pip install -r 'requirements.txt'
 3. Create a basic `README.md` file
 4. Follow [guide](utils/README.md) for adding a diagram
 5. run `main.py` of project to add to animations path
+6. add to README.md the new algorithm
