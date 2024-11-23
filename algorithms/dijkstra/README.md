@@ -4,7 +4,7 @@
 Dijkstra's algorithm finds the shortest path from a start node to all other nodes in a graph.
 
 ## Graph Data Format
-The graph data is stored in `graph.csv` with the following columns:
+The graph data is stored in `example_graph.csv` with the following columns:
 - `start`: The starting node of the edge.
 - `end`: The ending node of the edge.
 - `weight`: The weight of the edge.
