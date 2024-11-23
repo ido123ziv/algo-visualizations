@@ -2,7 +2,7 @@ import heapq
 
 
 def dijkstra(graph, start_node):
-    """Implement Dijkstra's algorithm."""
+    """Implement Dijkstra's algorithm with progress logging."""
     distances = {node: float('inf') for node in graph.nodes}
     distances[start_node] = 0
     visited = set()
@@ -17,7 +17,11 @@ def dijkstra(graph, start_node):
             continue
 
         visited.add(current_node)
-        steps.append((current_node, dict(distances)))
+        step = {
+            'current_node': current_node,
+            'updated_edges': [],
+            'annotation': f"Visiting Node {current_node}, Distance: {current_dist}"
+        }
 
         for neighbor in graph.neighbors(current_node):
             weight = graph[current_node][neighbor]['weight']
@@ -27,5 +31,8 @@ def dijkstra(graph, start_node):
                 distances[neighbor] = distance
                 path[neighbor] = current_node
                 heapq.heappush(priority_queue, (distance, neighbor))
+                step['updated_edges'].append((current_node, neighbor))
+
+        steps.append(step)
 
     return distances, path, steps

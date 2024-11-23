@@ -11,6 +11,11 @@ The graph data is stored in `graph.csv` with the following columns:
 
 ## Usage
 1. Ensure you have the required dependencies: `pip install -r requirements.txt`.
-2. Run the algorithm using `main.py` or directly from this folder:
+2. Run the algorithm using `main.py` or directly from root repository folder:
    ```bash
-   python dijkstra.py
+   python ../../main.py
+   ```
+
+## results
+The algorithm traverses the graph in a certain order:
+![Graph](./dijkstra_progress.gif)
