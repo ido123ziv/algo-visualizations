@@ -16,6 +16,14 @@ def run_algorithm(graph, start_node):
             - steps: A list of steps for visualization.
     """
     distances = {node: float('inf') for node in graph.nodes}
+    # validate empty graph
+    if graph.nodes is None or len(graph.nodes) == 0:
+        raise ValueError("Graph has no nodes.")
+
+    # validation if start node in graph
+    if start_node not in graph.nodes:
+        raise ValueError("Start node not found in the graph.")
+
     distances[start_node] = 0
     path = {}
     visited = set()
