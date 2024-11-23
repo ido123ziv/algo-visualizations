@@ -11,18 +11,24 @@ on:
 jobs:
   linting:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python_version: [3.8,3.9,3.10,3.11]
     steps:
       - name: Flake8
-        uses: microsoft/action-python@0.7.0
+        uses: microsoft/action-python@0.7.3
         with:
           flake8: true
+          python_version: ${{ matrix.python_version }}
           workdir: '.'
+          fail_on_error: true
 
   testing:
     runs-on: ubuntu-latest
     steps:
       - name: Pytest
-        uses: microsoft/action-python@0.7.0
+        uses: microsoft/action-python@0.7.3
         with:
-          testing: true
+          pytest: true
           workdir: '.'
+          fail_on_error: true
