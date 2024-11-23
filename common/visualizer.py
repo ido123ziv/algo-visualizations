@@ -21,7 +21,9 @@ def visualize_graph(graph, pos, title="Graph Visualization"):
     nx.draw_networkx_edge_labels(graph, pos,
                                  edge_labels=labels)
     plt.title(title)
-    plt.show()
+    if not os.getenv("CI_RUN"):
+        plt.show()
+    plt.close()
 
 
 def visualize_algorithm_progress(graph, pos, steps,

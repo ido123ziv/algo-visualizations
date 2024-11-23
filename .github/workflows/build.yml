@@ -39,6 +39,4 @@ jobs:
           committer_email: actions@github.com
           add: 'animations'
           message: "chore[bot]: skip ci"
-          pull: '--rebase --autostash ...'
-
 
