@@ -12,9 +12,10 @@ def test_e2e():
         except PermissionError as e:
             print(f"Failed to delete animations directory: {e}")
             return
+    print(os.listdir())
     # Run the main pipeline
     main()
-
+    print(os.listdir())
     # Check that animations are created for each graph and algorithm
     assert os.path.exists('animations/dijkstra_on_basic_directed_graph.gif')
     assert os.path.exists('animations/bfs_on_basic_directed_graph.gif')
