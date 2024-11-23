@@ -21,7 +21,7 @@ def test_visualization(mock_exists, mock_patch_permissions, mock_func_animation)
 
     # Call visualization
     visualize_algorithm_progress(graph, pos, steps,
-                                 title=f"MOCK Algorithm Animation",
+                                 title="MOCK Algorithm Animation",
                                  output_file="test.gif")
 
     # Assert FuncAnimation.save was called correctly
