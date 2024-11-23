@@ -1,0 +1,26 @@
+name: Python Lint and Test
+run-name: lint and test on ${{ github.ref_name }}
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Flake8
+        uses: microsoft/action-python@0.7.0
+        with:
+          flake8: true
+
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pytest
+        uses: microsoft/action-python@0.7.0
+        with:
+          testing: true
