@@ -1,0 +1,43 @@
+name: Build Animations
+run-name: Build Animations for ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Set up Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: install dependencies
+        run: pip install -r requirements.txt
+      - name: run
+        env:
+          CI_RUN: "true"
+        run: python main.py
+      - uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          add: 'animations'
+          message: "chore[bot]: skip ci"
+
