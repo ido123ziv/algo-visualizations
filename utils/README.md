@@ -23,7 +23,7 @@ export PYTHONPATH=.
 ```
 
 ```Powershell
-$env:PYTHONPATH=.
+$env:PYTHONPATH="."
 ```
 
 ```CMD
