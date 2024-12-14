@@ -1,6 +1,6 @@
-
 import networkx as nx
 from algorithms.prim import run_algorithm
+
 
 def test_prim_algorithm():
     graph = nx.Graph()
@@ -15,6 +15,7 @@ def test_prim_algorithm():
     mst_edges, total_weight, steps = run_algorithm(graph, start_node)
     assert set(mst_edges) == {(1, 2), (2, 3), (3, 4)}
     assert total_weight == 6
+
 
 def test_non_existent_start_node():
     graph = nx.Graph()
