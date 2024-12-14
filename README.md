@@ -21,6 +21,7 @@ Highly recommended to check out this repository: [AllAlgorithms](https://github.
 * Dijkstra [see](algorithms/dijkstra) -> an algorithm made to find the shortest path between nodes in a weighted graph 
 * BFS [see](algorithms/bfs) -> a searching algorithm on a graph
 * DFS [see](algorithms/dfs) -> a searching algorithm on a graph
+* Bellman-Ford [see](algorithms/bellman_ford/) -> is used to find the shortest paths from a single source vertex to all other vertices in a weighted graph
 
 ## Bootstrap
 
@@ -54,3 +55,14 @@ pip install -r 'requirements.txt'
 4. Follow [guide](utils/README.md) for adding a diagram
 5. run `main.py` of project to add to animations path
 6. add to README.md the new algorithm
+
+## Windows
+
+```powershell
+.\venv\Scripts\activate.bat
+py -m pip install -r .\requirements.txt
+$env:PYTHONPATH="."
+py .\utils\enrich_example.py --undirected --algorithm bellman_ford
+$env:CI_RUN="true"
+py -m pytest .
+```

@@ -1,0 +1,1 @@
+from .bellman_ford import run_algorithm # noqa F401
