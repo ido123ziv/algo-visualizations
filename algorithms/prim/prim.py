@@ -1,7 +1,8 @@
 import heapq
 import networkx as nx
 
-def run_algorithm(graph, start_node):
+
+def run_algorithm(graph: nx.Graph, start_node):
     """
     Run Prim's Algorithm to find the Minimum Spanning Tree (MST) on the given graph.
 
