@@ -64,5 +64,6 @@ py -m pip install -r .\requirements.txt
 $env:PYTHONPATH="."
 py .\utils\enrich_example.py --undirected --algorithm bellman_ford
 $env:CI_RUN="true"
+py -m flake8 .
 py -m pytest .
 ```
